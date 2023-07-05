@@ -5,7 +5,11 @@ import { AtStrategy, RtStrategy } from './strategies';
 import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [JwtModule.register({})],
+  imports: [
+    JwtModule.register({
+      secret: 'at-secret',
+    }),
+  ],
   controllers: [AuthController],
   providers: [AuthService, AtStrategy, RtStrategy],
 })
